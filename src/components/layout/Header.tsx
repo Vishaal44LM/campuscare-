@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { LogOut, User, Menu, X, Settings } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useState } from 'react';
-import srmLogo from '@/assets/srm-logo.jpeg';
+import sustainULogo from '@/assets/sustain-u-logo.png';
 
 export const Header = () => {
   const { user, role, signOut } = useAuth();
@@ -21,6 +21,7 @@ export const Header = () => {
         { href: '/maintenance/incoming', label: 'Incoming Issues' },
         { href: '/maintenance/work', label: 'Work & Resolution' },
         { href: '/my-works', label: 'My Works' },
+        { href: '/creators', label: 'Creators' },
       ];
     }
     return [
@@ -29,6 +30,7 @@ export const Header = () => {
       { href: '/my-issues', label: 'My Issues' },
       { href: '/profile', label: 'Profile' },
       { href: '/my-works', label: 'My Works' },
+      { href: '/creators', label: 'Creators' },
     ];
   };
 
@@ -39,7 +41,8 @@ export const Header = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-4">
           <Link to={role === 'maintenance' ? '/maintenance/incoming' : '/dashboard'} className="flex items-center gap-3">
-            <span className="font-bold text-xl text-primary">Campus Care</span>
+            <img src={sustainULogo} alt="Sustain-U Logo" className="h-10 w-auto object-contain" />
+            <span className="font-bold text-xl text-primary">Sustain-U</span>
           </Link>
         </div>
 
@@ -58,7 +61,7 @@ export const Header = () => {
 
         <div className="flex items-center gap-4">
           {/* SRM Logo */}
-          <img src={srmLogo} alt="SRM Logo" className="h-10 w-10 rounded-full hidden sm:block" />
+          {/* Logo already in navbar title */}
           
           {user && (
             <>
@@ -94,7 +97,7 @@ export const Header = () => {
           <nav className="container py-4 space-y-2">
             {/* Mobile SRM Logo */}
             <div className="flex justify-center pb-4">
-              <img src={srmLogo} alt="SRM Logo" className="h-12 w-12 rounded-full" />
+              <img src={sustainULogo} alt="Sustain-U Logo" className="h-12 w-auto object-contain" />
             </div>
             {navLinks.map((link) => (
               <Link

@@ -1,6 +1,6 @@
 import jsPDF from 'jspdf';
 import { format } from 'date-fns';
-import srmLogo from '@/assets/srm-logo-new.png';
+import sustainULogo from '@/assets/sustain-u-logo.png';
 
 interface StudentDetails {
   name: string | null;
@@ -103,18 +103,18 @@ export const generateIssuePDF = async (
   
   let yPos = margin;
 
-  // Load SRM logo
-  const logoBase64 = await loadAssetAsBase64(srmLogo);
+  // Load Sustain-U logo
+  const logoBase64 = await loadAssetAsBase64(sustainULogo);
 
   // ===== PAGE 1 =====
   
-  // Title - Campus Care – Issue Report (left aligned, bold)
+  // Title - Sustain-U – Issue Report (left aligned, bold)
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(22);
   doc.setTextColor(...textColor);
-  doc.text('Campus Care – Issue Report', margin, yPos + 10);
+  doc.text('Sustain-U – Issue Report', margin, yPos + 10);
   
-  // SRM Logo (top right)
+  // Sustain-U Logo (top right)
   if (logoBase64) {
     doc.addImage(logoBase64, 'PNG', pageWidth - margin - 45, yPos - 5, 45, 25);
   }
@@ -128,7 +128,7 @@ export const generateIssuePDF = async (
   yPos += 6;
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(10);
-  doc.text('Campus Care – Digital Issue Reporting System', margin, yPos);
+  doc.text('Sustain-U – Digital Issue Reporting System', margin, yPos);
   
   yPos += 18;
   
@@ -323,7 +323,7 @@ export const generateIssuePDF = async (
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(10);
   doc.setTextColor(...grayText);
-  doc.text(`Generated via Campus Care | Date: ${currentDate}`, margin, yPos);
+  doc.text(`Generated via Sustain-U | Date: ${currentDate}`, margin, yPos);
   
   // Return as blob
   return doc.output('blob');
@@ -331,5 +331,5 @@ export const generateIssuePDF = async (
 
 export const getReportFileName = (issueId: string): string => {
   const dateStr = format(new Date(), 'yyyy-MM-dd');
-  return `CampusCare_Issue_${issueId.slice(0, 8)}_${dateStr}.pdf`;
+  return `SustainU_Issue_${issueId.slice(0, 8)}_${dateStr}.pdf`;
 };

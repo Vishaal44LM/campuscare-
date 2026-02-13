@@ -14,6 +14,7 @@ import MyIssues from "./pages/MyIssues";
 import MyWorks from "./pages/MyWorks";
 import MaintenanceIncoming from "./pages/MaintenanceIncoming";
 import MaintenanceWork from "./pages/MaintenanceWork";
+import MeetTheCreators from "./pages/MeetTheCreators";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -72,6 +73,13 @@ const App = () => (
             <Route path="/maintenance/work" element={
               <ProtectedRoute allowedRoles={['maintenance']}>
                 <MaintenanceWork />
+              </ProtectedRoute>
+            } />
+
+            {/* Meet the Creators - accessible by all authenticated users */}
+            <Route path="/creators" element={
+              <ProtectedRoute allowedRoles={['student', 'maintenance']}>
+                <MeetTheCreators />
               </ProtectedRoute>
             } />
 
