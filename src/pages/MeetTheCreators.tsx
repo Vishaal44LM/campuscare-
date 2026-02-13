@@ -4,12 +4,12 @@ import { User } from 'lucide-react';
 
 const creators = [
   {
-    name: 'Vishaal Thennarasu',
-    subtitle: 'B.Tech CSE 2nd Year',
+    name: 'Vishaal Thennarasu (Founder)',
+    subtitle: '(RA2411003010284)\n2nd Year',
   },
   {
-    name: 'Ulaganathan P',
-    subtitle: 'B.Tech CSE 2nd Year',
+    name: 'Ulaganathan P (Founder)',
+    subtitle: '(RA2411003010265)\n2nd Year',
   },
 ];
 
@@ -37,9 +37,11 @@ const MeetTheCreators = () => {
                 <h2 className="font-bold text-base sm:text-lg text-foreground text-center leading-tight">
                   {creator.name}
                 </h2>
-                <p className="text-xs sm:text-sm text-muted-foreground mt-1 text-center">
-                  {creator.subtitle}
-                </p>
+                {creator.subtitle.split('\n').map((line, i) => (
+                  <p key={i} className="text-xs sm:text-sm text-muted-foreground mt-1 text-center">
+                    {line}
+                  </p>
+                ))}
               </CardContent>
             </Card>
           ))}
