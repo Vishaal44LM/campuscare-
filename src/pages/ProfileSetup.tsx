@@ -9,7 +9,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { Loader2, User, Mail, GraduationCap, Building, IdCard, Phone } from 'lucide-react';
-import srmLogo from '@/assets/srm-logo.jpeg';
+import sustainULogo from '@/assets/sustain-u-logo.png';
+import campusBgImg from '@/assets/campus-bg.jpg';
 
 const departments = [
   'Computer Science and Engineering',
@@ -134,11 +135,12 @@ const ProfileSetup = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background p-4">
-      <div className="w-full max-w-lg animate-fade-in">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background p-4 relative">
+      <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10" style={{ backgroundImage: `url(${campusBgImg})` }} />
+      <div className="w-full max-w-lg animate-fade-in relative z-10">
         {/* Logo and Title */}
         <div className="text-center mb-8">
-          <img src={srmLogo} alt="SRM Logo" className="h-20 w-auto mx-auto mb-4 rounded-full" />
+          <img src={sustainULogo} alt="Sustain-U Logo" className="h-24 w-auto mx-auto mb-4 object-contain" />
           <h1 className="text-2xl font-bold text-primary">Complete Your Profile</h1>
           <p className="text-muted-foreground mt-2">This information helps us serve you better</p>
         </div>

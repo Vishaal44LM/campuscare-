@@ -132,7 +132,7 @@ const StudentDashboard = () => {
     if (currentBadge) {
       const link = document.createElement('a');
       link.href = currentBadge.image;
-      link.download = `CampusCare_${currentBadge.name}_Badge.jpeg`;
+      link.download = `SustainU_${currentBadge.name}_Badge.jpeg`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

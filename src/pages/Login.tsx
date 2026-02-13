@@ -9,7 +9,8 @@ import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { toast } from 'sonner';
 import { Loader2, Mail, Lock, User } from 'lucide-react';
-import srmLogo from '@/assets/srm-logo.jpeg';
+import sustainULogo from '@/assets/sustain-u-logo.png';
+import campusBgImg from '@/assets/campus-bg.jpg';
 
 const ALLOWED_EMAIL_DOMAIN = '@srmist.edu.in';
 
@@ -112,12 +113,17 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background p-4">
-      <div className="w-full max-w-md animate-fade-in">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-secondary/20 to-background p-4 relative">
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-10"
+        style={{ backgroundImage: `url(${campusBgImg})` }}
+      />
+      <div className="w-full max-w-md animate-fade-in relative z-10">
         {/* Logo and Title */}
         <div className="text-center mb-8">
-          <img src={srmLogo} alt="SRM Logo" className="h-20 w-auto mx-auto mb-4 rounded-full" />
-          <h1 className="text-2xl font-bold text-primary">Campus Care</h1>
+          <img src={sustainULogo} alt="Sustain-U Logo" className="h-24 w-auto mx-auto mb-4 object-contain" />
+          <h1 className="text-2xl font-bold text-primary">Sustain-U</h1>
         </div>
 
         <Card className="border-border shadow-xl">
